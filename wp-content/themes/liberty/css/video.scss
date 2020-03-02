@@ -1,0 +1,181 @@
+@import "partials/variables";
+@import "partials/utilities";
+@import "partials/responsive-utilities";
+
+body.video {
+  background-color: #fff;
+  background-image: none;
+  &.wedding .description .description-title {
+    font-family: 'Corinthia', sans-serif;
+    font-size: 3vw;
+  }
+  &.production .description .description-title {
+    font-family: 'GothamPro-Bold', sans-serif;
+    font-size: 2.6vw;
+  }
+}
+
+#stripe {
+  @include transform-prefixed(skew(20deg));
+  z-index: -1;
+  opacity: 1;
+  left: 18.6vh;
+  transition: 0s;
+  -webkit-mask: none;
+  -webkit-mask-position-x: initial;
+  -webkit-mask-position-y: initial;
+  -webkit-mask-size: initial;
+  @include media-for-xs {
+    width: 70px;
+    @include transform-prefixed(skew(28deg));
+    left: 26.6vh;
+  }
+}
+
+.portfolio-title {
+  & .video {
+    color: $portfolio-grey;
+    &.wedding-title {
+      margin-top: 34px;
+      @include media-for-xs {
+        margin-top: 14px;
+      }
+    }
+    &.production-title {
+      margin-top: 72px;
+      @include media-for-xs {
+        margin-top: 40px;
+      }
+    }
+    &.wedding-title, &.production-title {
+      @include media-for-xs-h {
+        margin-top: 0;
+      }
+    }
+    & .parallelogram {
+      @include media-for-xs {
+        border-color: $portfolio-grey;
+      }
+      & .parallelogram-inner-text {
+        @include media-for-xs {
+          color: $portfolio-grey;
+        }
+        @include media-for-xs-h {
+          color: $portfolio-grey;
+        }
+      }
+    }
+  }
+}
+
+.video-preview > .row {
+  @include media-for-xs {
+    @include padding-left-right(20px);
+  }
+  @include media-for-xs-min {
+    @include padding-left-right(15px);
+  }
+  .videoplayer {
+    background-color: transparent;
+    @include media-for-xs {
+      height: auto;
+      width: 100%;
+      @include padding-left-right(0);
+    }
+    @include media-for-sm {
+      @include padding-left-right(0);
+    }
+    & .video-js .vjs-big-play-button {
+      border: none;
+      border-radius: 50%;
+      background-color: #fff;
+      @include square-width-height(1.5em);
+      transform: translate(30%, -20%);
+      -webkit-mask: url("../assets/img/triangle-play-inverted.png") no-repeat;
+      -webkit-mask-size: 140%;
+      -webkit-mask-position: 40%;
+      @include media-for-xs {
+        transform: translate(50%, -10%);
+      }
+    }
+  }
+}
+
+.description{
+  padding-top: 20px;
+  background-color: $portfolio-grey;
+  //height of this div is determined by js in video.php
+  height: 0;
+  color: #fff;
+  overflow-y:scroll;
+  border: 8px solid $portfolio-grey;
+  @include media-for-xs {
+    padding-top: 0;
+    margin-top: 10px;
+  }
+  @include media-for-xs-min {
+    margin-top: 0;
+  }
+  & .description-title, & .description-date {
+    text-align: center;
+  }
+  & .description-title {
+    line-height: normal;
+  }
+  & .description-date {
+    font-family: 'GothamPro-Bold', sans-serif;
+    font-size: 2vw;
+    padding-bottom: 10px;
+    @include media-for-xs {
+      font-size: 16pt;
+      padding-bottom: 8px;
+      padding-top: 5px;
+    }
+  }
+  & .description-text {
+    font-family: 'GothamPro', sans-serif;
+    text-align: justify;
+    font-weight: 600;
+    @include media-for-xs {
+      font-size: 0.9em;
+    }
+  }
+}
+
+.scrollbar
+{
+  margin-left: 30px;
+  float: left;
+  height: 300px;
+  width: 65px;
+  background: #F5F5F5;
+  overflow-y: scroll;
+  margin-bottom: 25px;
+}
+
+.description::-webkit-scrollbar-track
+{
+  border-radius: 10px;
+  background-color: $portfolio-grey;
+}
+
+.description::-webkit-scrollbar
+{
+  width: 8px;
+  background-color: $portfolio-grey;
+}
+
+.description::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.social-connect-one-screen-layout {
+  @include media-for-xs {
+    display: none;
+  }
+  & i::before {
+      color: $portfolio-grey;
+  }
+}

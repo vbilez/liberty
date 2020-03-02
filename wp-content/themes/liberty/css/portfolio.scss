@@ -1,0 +1,487 @@
+@import "partials/variables";
+@import "partials/utilities";
+@import "partials/responsive-utilities";
+
+body {
+  background-repeat: no-repeat;
+  @include background-size(cover);
+  & > .container {
+    @include media-for-sm {
+      width: 85%;
+    }
+    @include media-for-lg {
+      width: 80%;
+    }
+  }
+}
+
+body {
+  &.production:not(.video)::before, &.wedding:not(.video)::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #002529d1;
+  }
+  &.production {
+    background-image: url('../assets/img/portfolio-production-bodybg-sm.jpg');
+    @include media-for-xs {
+      background-position-x: 56%;
+      background-size: 280%;
+    }
+    @include media-for-sm {
+      background-size: 210%;
+      background-position-x: 50%;
+    }
+    @include media-for-lg {
+      background-image: url('../assets/img/portfolio-production-bodybg-lg.jpg');
+    }
+  }
+  &.wedding {
+    background-image: url('../assets/img/portfolio-wedding-bodybg-sm.jpg');
+    @include media-for-xs {
+      background-size: 160vh;
+      background-position-x: -130px;
+    }
+    @include media-for-sm {
+      background-size: 190vh;
+      background-position-x: -320px;
+      background-position-y: -210px;
+    }
+    @include media-for-md {
+      -webkit-background-size: initial;
+      background-size: cover;
+      background-position: initial;
+    }
+    @include media-for-lg {
+      background-image: url('../assets/img/portfolio-wedding-bodybg-lg.jpg');
+    }
+  }
+}
+
+.home-button {
+  position: absolute;
+  background-color: $primary-theme-color;
+  border-radius: 10%;
+  z-index: 1;
+  &:hover, &:focus, &:active {
+    background-color: #fff;
+    & i {
+      color: $primary-theme-color;
+    }
+  }
+  @include media-for-xs {
+    top: 20px;
+    right: 20px;
+    @include square-width-height(25px);
+    & i {
+      font-size: 20px;
+    }
+  }
+  @include media-for-xs-h {
+    @include square-width-height(30px);
+    right: 10px;
+    top: 10px;
+  }
+  @include media-for-sm {
+    top: 30px;
+    right: 30px;
+    & i {
+      font-size: 36px;
+    }
+  }
+  @include media-for-lg {
+    top: 50px;
+    right: 50px;
+  }
+  @include square-width-height(50px);
+  & i {
+    color: #fff;
+    position: relative;
+    left: 50%;
+    transform: translate(-53%, -50%);
+    top: 50%;
+  }
+}
+
+.portfolio-title {
+  @include media-for-xs {
+    position: relative;
+  }
+  & .wedding-title, & .production-title {
+    position: relative;
+    margin: 0 auto;
+    color: #fff;
+    //dummy transform property - somehow resolves conflict with bod'ys ::before attributes
+    transform: skew(0);
+    & .parallelogram {
+      position: absolute;
+      & .parallelogram-inner-text{
+        padding: 0 40px;
+        font-family: 'GothamPro', sans-serif;
+        font-weight: bold;
+        font-size: 22px;
+        @include media-for-xs {
+          font-family: 'GothamPro-Medium', sans-serif;
+          font-size: 19px;
+          font-weight: normal;
+          @include padding-left-right(30px);
+        }
+        @include media-for-xl {
+          font-size: 32px;
+        }
+      }
+    }
+  }
+  & .wedding-title {
+    width: 600px;
+    margin-bottom: 2%;
+    text-align: center;
+    @include media-for-xs {
+      font-size: 60pt;
+      width: auto;
+      margin-top: 20px;
+      margin-bottom: 8%;
+    }
+    @include media-for-xs-h {
+      width: auto;
+      text-align: left;
+    }
+    @include media-for-sm {
+      font-size: 70pt;
+      padding-right: 110px;
+      margin-top: 9%;
+    }
+    @include media-for-md {
+      margin-top: 5%;
+    }
+    @include media-for-lg {
+      margin-top: 8%;
+    }
+    @include media-for-xl {
+      font-size: 110pt;
+      margin-top: 5%;
+    }
+    & .parallelogram {
+      right: 67px;
+      top: 18px;
+      @include media-for-xs {
+        left: 50%;
+        transform: translateX(-70%) skew(-20deg);
+        top: 79px;
+      }
+      @include media-for-xs-h {
+        right: 50%;
+        transform: translateX(50%) skew(-20deg);
+        top: 8px;
+      }
+      @include media-for-xs-h-v {
+        background-color: transparent;
+        border: 2px solid #66FAF9;
+      }
+      @include media-for-xl {
+        right: -28px;
+        top: 38px;
+      }
+    }
+  }
+  & .production-title {
+    width: 430px;
+    font-size: 35pt;
+    padding-left: 30px;
+    @include media-for-xs {
+      font-size: 30pt;
+      width: intrinsic;
+      width: fit-content;
+      margin-top: 40px;
+      margin-bottom: 15%;
+      padding-left: 0;
+    }
+    @include media-for-xs-h {
+      width: auto;
+      text-align: left;
+      font-size: 20px;
+      padding-top: 11px;
+      padding-left: 0;
+      margin-bottom: 4%;
+    }
+    @include media-for-sm {
+      margin-top: 16%;
+      margin-bottom: 7%;
+    }
+    @include media-for-md {
+      margin-top: 10%;
+      margin-bottom: 5%;
+    }
+    @include media-for-lg {
+      margin-top: 10%;
+      margin-bottom: 6%;
+    }
+    @include media-for-xl {
+      font-size: 45pt;
+      margin-top: 9%;
+      padding-left: 0;
+      transform: translateX(-5%);
+    }
+    & .parallelogram {
+      right: -10px;
+      top: -20px;
+      @include media-for-xs {
+        left: 50%;
+        transform: translateX(-70%) skew(-20deg);
+        top: 50px;
+        margin-left: 8px;
+      }
+      @include media-for-xs-h {
+        right: 50%;
+        transform: translateX(50%) skew(-20deg);
+        top: 8px;
+      }
+      @include media-for-xs-h-v {
+        background-color: transparent;
+        border: 2px solid #66FAF9;
+      }
+      @include media-for-sm {
+        right: -20px;
+      }
+      @include media-for-lg {
+        right: -10px;
+      }
+      @include media-for-xl {
+        right: -95px;
+        top: -23px;
+      }
+    }
+  }
+}
+
+
+
+/**
+video-thumbnails
+ */
+
+.video-thumbs-table {
+  @include media-for-xs-h-v {
+    float: none !important;
+    margin: 0 auto;
+    width: 80vw !important;
+  }
+  & > .row {
+    @include media-for-xs-h-v {
+      @include margin-left-right(0);
+    }
+    & .video-item {
+      @include padding-left-right(7px);
+      padding-bottom: 14px;
+      @include media-for-xs {
+        @include padding-left-right(0);
+        height: 50vh;
+      }
+      @include media-for-xs-min {
+        height: 46vh;
+      }
+      @include media-for-xs-h {
+        height: 65vh;
+      }
+      @include media-for-sm {
+        height: 21vh;
+      }
+      @include media-for-md {
+        height: auto;
+      }
+      @include media-for-lg {
+        height: 26vh;
+      }
+      @include media-for-xl {
+        height: 28vh;
+      }
+      & > a {
+        & img {
+          height: 100%;
+          width: 100%;
+          @include media-for-md {
+            height: 20vh;
+          }
+          @include media-for-lg {
+            height: 100%;
+          }
+        }
+      }
+      & .video-thumb-caption-box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 30%;
+        background: rgba(120, 250, 249, 0.7);
+        top: -30%;
+        position: relative;
+        @include media-for-xs {
+          height: 20%;
+          top: -20%;
+        }
+        @include media-for-md {
+          top: initial;
+        }
+        @include media-for-lg {
+          top: -30%;
+        }
+        & .video-thumb-title-text {
+          float: left;
+          padding-left: 20px;
+          color: white;
+          @include media-for-xs {
+            padding-left: 10px;
+          }
+        }
+        & .video-thumb-title-date {
+          font-family: 'GothamPro-Bold', sans-serif;
+          float: right;
+          padding-right: 15px;
+          font-weight: 900;
+          @include media-for-sm {
+            font-size: 20px;
+          }
+          @include media-for-lg {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+  & .next-video-thumbs-arrow, & .prev-video-thumbs-arrow {
+    transform: translateY(-50%);
+    position: absolute;
+    top: 49%;
+    @include media-for-sm-max {
+      display: none;
+    }
+    @include media-for-xs-h {
+      display: block;
+    }
+  }
+  & .next-video-thumbs-arrow {
+    right: -60px;
+    @include media-for-xs-h-v {
+      right: -40px;
+    }
+  }
+  & .prev-video-thumbs-arrow {
+    left: -60px;
+    @include media-for-xs-h-v {
+      left: -40px;
+    }
+  }
+  & .owl-dots {
+    @include media-for-xs-h {
+      display: none;
+    }
+  }
+}
+
+body.production .video-thumbs-table > .row .video-item .video-thumb-caption-box .video-thumb-title-text {
+  font-family: 'GothamPro', sans-serif;
+  float: left;
+  font-size: 30px;
+  color: white;
+  @include media-for-xs {
+    font-size: 16px;
+  }
+  @include media-for-xs-h {
+    font-size: 12px;
+  }
+  @include media-for-sm {
+    font-size: 20px;
+  }
+  @include media-for-md {
+    font-size: 18px;
+    line-height: 44px;
+  }
+  @include media-for-lg {
+    font-size: 20px;
+  }
+}
+
+body.wedding .video-thumbs-table > .row .video-item .video-thumb-caption-box .video-thumb-title-text {
+  font-family: 'Corinthia', sans-serif;
+  float: left;
+  font-size: 30px;
+  color: white;
+  @include media-for-xs-h {
+    font-size: 23px;
+  }
+  @include media-for-md {
+    font-size: 30px;
+  }
+}
+
+.search-field {
+  padding-top: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  @include media-for-xs {
+    padding-top: 4px;
+  }
+  @include media-for-xs-h {
+    display: none;
+  }
+  @include media-for-md {
+    @include padding-left-right(120px);
+  }
+  & .next-video-thumbs-arrow, & .prev-video-thumbs-arrow {
+    transform: translateY(-10%);
+    font-size: 10px;
+    @include media-for-xs {
+      font-size: 7px;
+    }
+    @include media-for-md {
+      display: none;
+    }
+    & i {
+      color: $primary-theme-color;
+    }
+  }
+  & input {
+    width: 200px;
+    height: 30px;
+    opacity: 0.45;
+    background-color: gray;
+    border: none;
+    display: inline-block;
+    @include media-for-xs {
+      width: 50vw;
+      height: 25px;
+    }
+  }
+  & span.glyphicon {
+    padding-left: 10px;
+    color: #fff;
+  }
+}
+
+/**
+footer
+ */
+
+footer {
+  @include media-for-xs-h {
+    display: none;
+  }
+}
+
+.social-connect-one-screen-layout {
+  background-color: transparentize($primary-theme-color, .6);
+  @include media-for-md {
+    justify-content: flex-end;
+    background-color: transparent;
+    height: 55px;
+  }
+  & i {
+    opacity: 0.7;
+  }
+}

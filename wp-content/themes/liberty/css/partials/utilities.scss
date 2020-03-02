@@ -1,0 +1,28 @@
+@mixin padding-top-bottom($padding-size) {
+  padding-top: $padding-size;
+  padding-bottom: $padding-size;
+}
+@mixin padding-left-right($padding-size) {
+  padding-right: $padding-size;
+  padding-left: $padding-size;
+}
+@mixin margin-left-right($margin-size) {
+  margin-right: $margin-size;
+  margin-left: $margin-size;
+}
+@mixin background-size($size) {
+  -moz-background-size: $size;
+  -webkit-background-size: $size;
+  -o-background-size: $size;
+  background-size: $size;
+}
+@mixin square-width-height($size){
+  height: $size;
+  width: $size;
+}
+@mixin transform-prefixed($param) {
+  -webkit-transform: $param;
+  -moz-transform: $param;
+  -o-transform: $param;
+  transform: $param;
+}
